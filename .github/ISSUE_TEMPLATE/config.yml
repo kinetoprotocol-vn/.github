@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 🛡️ Critical Security Vulnerability Reporting
+    url: https://github.com/axioledger/axioledger-monorepo/blob/main/SECURITY.md
+    about: For urgent, high-severity vulnerabilities, please report via encrypted email to security@axioledger.org.
+  - name: 💬 Axioledger Developer Discussions
+    url: https://github.com/axioledger/axioledger-monorepo/discussions
+    about: For general questions, ideas, and architecture debates.
