@@ -1,0 +1,80 @@
+name: "🔒 Security Vulnerability Report"
+description: Report a security bug or vulnerability in Axioledger Monorepo
+title: "[SECURITY]: "
+labels: ["security", "triage", "needs-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### ⚠️ Important Notice
+        If this is a **Critical** vulnerability (e.g., direct theft of funds, ZK-proof forgery, consensus halt), please **DO NOT** submit this public issue.
+        Email your encrypted report directly to **`security@axioledger.org`** per our [SECURITY.md](../SECURITY.md) policy.
+
+  - type: dropdown
+    id: affected-module
+    attributes:
+      label: Affected Monorepo Module
+      description: Which pillar or subsystem is impacted?
+      options:
+        - "01-axioledger-core (L1 Settlement / Governance / Passkey)"
+        - "02-valiprecision-net (Consensus / Validator / AF_XDP)"
+        - "03-sequentichain-l2 (SVM Rollup / Sequencer / Paymaster)"
+        - "04-veraciphers-zk (Halo2/PlonKy2 Prover / ZK-KYC / MACI)"
+        - "05-kinetoprotocol-dex (CLAMM / AMM / veKPX / Circuit Breaker)"
+        - "Other / Infrastructure / CI/CD"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Estimated Severity (CVSS v3.1)
+      description: What is the potential impact?
+      options:
+        - "Low (Logic edge case, minor state desync)"
+        - "Medium (Unclaimed yield lockup, local gas exhaustion DoS)"
+        - "High (Temporary loss of funds, MEV bypass, oracle manipulation)"
+        - "Critical (Direct theft of funds, consensus halt, ZK-Proof forge)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: vulnerability-details
+    attributes:
+      label: Vulnerability Description
+      description: Provide a clear and concise description of the vulnerability.
+      placeholder: "Describe the flaw, root cause, and how it can be exploited..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: poc
+    attributes:
+      label: Proof of Concept (PoC)
+      description: Provide reproduction steps, minimal unit tests, or test scripts (e.g., `moccasin test` or Rust integration tests).
+      placeholder: |
+        ```rust
+        // Insert minimal reproducible code or CLI command
+        ```
+      render: rust
+    validations:
+      required: true
+
+  - type: textarea
+    id: mitigation
+    attributes:
+      label: Proposed Remediation / Patch
+      description: If known, suggest how to fix or mitigate this issue.
+      placeholder: "Describe proposed code changes or architectural adjustments..."
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: compliance
+    attributes:
+      label: Security Guidelines Compliance
+      options:
+        - label: "I confirm this report does not contain live exploits against Mainnet/Testnet."
+          required: true
+        - label: "I have read and agree to follow the Axioledger [SECURITY.md](../SECURITY.md) guidelines."
+          required: true
