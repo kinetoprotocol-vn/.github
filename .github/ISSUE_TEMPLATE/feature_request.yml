@@ -1,0 +1,54 @@
+name: "🚀 Feature / Enhancement Request"
+description: Propose a new feature, protocol module, or architectural improvement
+title: "[FEATURE]: "
+labels: ["enhancement", "feature", "discussion"]
+body:
+  - type: dropdown
+    id: target-pillar
+    attributes:
+      label: Target Monorepo Module
+      description: Where should this feature be integrated?
+      options:
+        - "01-axioledger-core"
+        - "02-valiprecision-net"
+        - "03-sequentichain-l2"
+        - "04-veraciphers-zk"
+        - "05-kinetoprotocol-dex"
+        - "Cross-module / Monorepo Tooling"
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem-statement
+    attributes:
+      label: Problem or Use Case
+      description: What pain point or ecosystem requirement does this feature address?
+      placeholder: "Describe the current limitation or problem you are trying to solve..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: Proposed Solution & Architecture
+      description: Detail the proposed solution, APIs, contracts, or data flow changes.
+      placeholder: "Describe how this feature should work and its technical implementation..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Mention any alternative implementations or workarounds evaluated.
+      placeholder: "Describe options considered and why they were ruled out..."
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution
+      options:
+        - label: "I am willing to submit a Pull Request to implement this feature."
+          required: false
